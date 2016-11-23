@@ -2,40 +2,7 @@
 
 {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
     {{ form_widget(form) }}
-<h1>Register</h1>
-
-{{ form_start(form) }}
-<div>
-    {{ form_label(form.email) }} <br>
-    {{ form_widget(form.email) }}
-</div>
-
-<div>
-    {{ form_label(form.username) }} <br>
-    {{ form_widget(form.username) }}
-</div>
-
-<div>
-    {{ form_label(form.password) }} <br>
-    {{ form_widget(form.password) }}
-</div>
-
-<div>
-    {{ form_label(form.password_confirmation) }} <br>
-    {{ form_widget(form.password_confirmation) }}
-</div>
-
-<div>
-    {{ form_label(form.description) }} <br>
-    {{ form_widget(form.description) }}
-</div>
-
-<div>
-    {{ form_label(form.picture) }} <br>
-    {{ form_widget(form.picture) }}
-</div>
-
     <div>
-        <input type="submit" value="{{ 'Register'|trans }}" />
+        <input type="submit" value="{{ 'registration.submit'|trans }}" />
     </div>
 {{ form_end(form) }}
