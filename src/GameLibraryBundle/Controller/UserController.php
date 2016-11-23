@@ -53,7 +53,7 @@ class UserController extends Controller
      * @Template ("GameLibraryBundle::editProfile.html.twig")
      */
 
-    public function editProfileAction (Request $request, User $user) {
+    public function editProfileAction (Request $request, User $user, $id) {
 
 
         $form = $this->createForm('GameLibraryBundle\Form\UserType', $user);
@@ -70,7 +70,8 @@ class UserController extends Controller
         }
 
         return [
-          'edit_form' => $form->createView()
+          'edit_form' => $form->createView(),
+            'id' => $id
         ];
     }
 

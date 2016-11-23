@@ -142,10 +142,22 @@
       <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GameLibraryBundle/Entity/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="996">
-              <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
+            <state relative-caret-position="186">
+              <caret line="33" column="31" selection-start-line="33" selection-start-column="31" selection-end-line="33" selection-end-column="31" />
               <folding>
                 <element signature="e#43#85#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/GameLibraryBundle/Controller/UserController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="367">
+              <caret line="73" column="23" selection-start-line="73" selection-start-column="23" selection-end-line="73" selection-end-column="23" />
+              <folding>
+                <element signature="e#48#82#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -161,11 +173,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="show_content.html.twig" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Profile/show_content.html.twig">
+      <file leaf-file-name="editProfile.html.twig" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/GameLibraryBundle/Resources/views/editProfile.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
+            <state relative-caret-position="165">
+              <caret line="11" column="14" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -217,6 +229,7 @@
         <option value="$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Profile/edit_content.html.twig" />
         <option value="$PROJECT_DIR$/src/GameLibraryBundle/Form/User.php" />
         <option value="$PROJECT_DIR$/src/GameLibraryBundle/Resources/views/base.html.twig" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/src/GameLibraryBundle/Resources/views/editProfile.html.twig" />
 <<<<<<< HEAD
         <option value="$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Profile/show_content.html.twig" />
@@ -229,12 +242,19 @@
 >>>>>>> 5190ba1c99ea8ec94cdf3b421332b2f6626bd0a6
 =======
         <option value="$PROJECT_DIR$/src/GameLibraryBundle/Controller/UserController.php" />
+=======
+>>>>>>> 349c8391c537cf53afa901230cab275e3edb2998
         <option value="$PROJECT_DIR$/src/GameLibraryBundle/Resources/views/template.html.twig" />
         <option value="$PROJECT_DIR$/src/GameLibraryBundle/Controller/DefaultController.php" />
         <option value="$PROJECT_DIR$/src/GameLibraryBundle/Form/UserType.php" />
-        <option value="$PROJECT_DIR$/src/GameLibraryBundle/Entity/User.php" />
         <option value="$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Profile/show_content.html.twig" />
+<<<<<<< HEAD
 >>>>>>> a21727f0dbcb93e5ec34a3fcd05df5683e97bf25
+=======
+        <option value="$PROJECT_DIR$/src/GameLibraryBundle/Controller/UserController.php" />
+        <option value="$PROJECT_DIR$/src/GameLibraryBundle/Entity/User.php" />
+        <option value="$PROJECT_DIR$/src/GameLibraryBundle/Resources/views/editProfile.html.twig" />
+>>>>>>> 349c8391c537cf53afa901230cab275e3edb2998
       </list>
     </option>
   </component>
@@ -289,6 +309,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <option name="x" value="65" />
     <option name="y" value="24" />
     <option name="width" value="1855" />
@@ -304,6 +325,10 @@
     <option name="x" value="367" />
     <option name="y" value="219" />
 >>>>>>> a21727f0dbcb93e5ec34a3fcd05df5683e97bf25
+=======
+    <option name="x" value="701" />
+    <option name="y" value="127" />
+>>>>>>> 349c8391c537cf53afa901230cab275e3edb2998
     <option name="width" value="1006" />
     <option name="height" value="621" />
 >>>>>>> ceae1d847dca3b7b2ed1b97f5b693de871c6cc51
@@ -825,6 +850,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       <workItem from="1479890798387" duration="5454000" />
       <workItem from="1479897694332" duration="3924000" />
 =======
@@ -836,10 +862,14 @@
 =======
       <workItem from="1479890798387" duration="12740000" />
 >>>>>>> a21727f0dbcb93e5ec34a3fcd05df5683e97bf25
+=======
+      <workItem from="1479890798387" duration="13379000" />
+>>>>>>> 349c8391c537cf53afa901230cab275e3edb2998
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -858,9 +888,12 @@
 =======
     <option name="totallyTimeSpent" value="12810000" />
 >>>>>>> a21727f0dbcb93e5ec34a3fcd05df5683e97bf25
+=======
+    <option name="totallyTimeSpent" value="13449000" />
+>>>>>>> 349c8391c537cf53afa901230cab275e3edb2998
   </component>
   <component name="ToolWindowManager">
-    <frame x="367" y="219" width="1006" height="621" extended-state="0" />
+    <frame x="701" y="127" width="1006" height="621" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.284375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1249,6 +1282,7 @@
     </entry>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/config/security.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="435">
@@ -1282,6 +1316,8 @@
     <entry file="file://$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Registration/register.html.twig">
 =======
 =======
+=======
+>>>>>>> 349c8391c537cf53afa901230cab275e3edb2998
     <entry file="file://$PROJECT_DIR$/src/GameLibraryBundle/Resources/views/template.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
@@ -1300,6 +1336,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
 >>>>>>> a21727f0dbcb93e5ec34a3fcd05df5683e97bf25
     <entry file="file://$PROJECT_DIR$/src/GameLibraryBundle/Controller/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -1319,6 +1356,8 @@
     <entry file="file://$PROJECT_DIR$/src/GameLibraryBundle/Resources/views/template.html.twig">
 >>>>>>> 5190ba1c99ea8ec94cdf3b421332b2f6626bd0a6
 =======
+=======
+>>>>>>> 349c8391c537cf53afa901230cab275e3edb2998
     <entry file="file://$PROJECT_DIR$/src/GameLibraryBundle/Form/RegistrationType.php">
 >>>>>>> a21727f0dbcb93e5ec34a3fcd05df5683e97bf25
       <provider selected="true" editor-type-id="text-editor">
@@ -1384,10 +1423,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Profile/show_content.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameLibraryBundle/Controller/UserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="367">
+          <caret line="73" column="23" selection-start-line="73" selection-start-column="23" selection-end-line="73" selection-end-column="23" />
+          <folding>
+            <element signature="e#48#82#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/GameLibraryBundle/Entity/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="996">
-          <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
+        <state relative-caret-position="186">
+          <caret line="33" column="31" selection-start-line="33" selection-start-column="31" selection-end-line="33" selection-end-column="31" />
           <folding>
             <element signature="e#43#85#0#PHP" expanded="true" />
           </folding>
@@ -1402,10 +1459,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Profile/show_content.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/GameLibraryBundle/Resources/views/editProfile.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
+        <state relative-caret-position="165">
+          <caret line="11" column="14" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
           <folding />
         </state>
       </provider>
