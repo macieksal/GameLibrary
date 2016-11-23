@@ -1,0 +1,24 @@
+<html>
+<head></head>
+
+
+<body>
+
+{{ app.user}} <br>
+{% if app.user is not null %}
+    Witaj, <a href="{{ path('fos_user_profile_show')  }}">{{ app.user.username }} !</a><br>
+
+    <a href="{{ path('fos_user_security_logout') }}">Wyloguj się</a><br>
+
+    <a href="{{ path('fos_user_profile_edit') }}">Edytuj profil</a>
+
+{% else %}
+
+    Nie jesteś zalogowany. <br>
+    <a href="{{ path('fos_user_security_login') }}">Zaloguj się</a><br>
+    <a href="{{ path('fos_user_registration_register') }}">Zarejestruj się</a>
+
+{% endif %}
+
+</body>
+</html>
