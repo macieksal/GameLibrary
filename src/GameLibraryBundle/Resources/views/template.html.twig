@@ -10,8 +10,7 @@
 
     <a href="{{ path('fos_user_security_logout') }}">Wyloguj się</a><br>
 
-    <a href="{{ path('editProfile', {'id': app.user}) }}">Edytuj profil</a>
-
+    <a href="{{ path('editProfile', {'username': app.user}) }}">Edytuj profil</a>
 {% else %}
 
     Nie jesteś zalogowany. <br>
