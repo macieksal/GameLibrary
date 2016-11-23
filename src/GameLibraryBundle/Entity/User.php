@@ -27,11 +27,11 @@ class User extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(name="picture", type="string", length=255, options={"default": "/uploads/defaultAvatar.jpg" })
+     * @ORM\Column(name="picture", type="string", length=255)
      *
      * @Assert\File(mimeTypes={"image/jpeg"})
      */
-    private $picture= 'uploads/defaultAvatar.jpg';
+    private $picture = 'uploads/defaultAvatar.jpg';
 
     public function __construct()
     {
