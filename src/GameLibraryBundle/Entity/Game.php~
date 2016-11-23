@@ -3,6 +3,8 @@
 namespace GameLibraryBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * Game
@@ -25,6 +27,7 @@ class Game
      * @var string
      *
      * @ORM\Column(name="title", type="string", length=255, unique=true)
+     * @Assert\NotBlank(message="Game title cannot be blank")
      */
     private $title;
 
@@ -43,12 +46,27 @@ class Game
     private $premiereDate;
 
     /**
-     * @var \integer
+     * @var \decimal
      *
-     * @ORM\Column(name="rating", type="integer")
+     * @ORM\Column(name="rating", type="decimal", scale=2, nullable=true)
      */
     private $rating;
 
+
+    /**
+     * @var \integer
+     *
+     * @ORM\Column(name="rating_quantity", type="integer", nullable=true)
+     */
+    private $ratingQuantity;
+
+    /**
+     * @var \integer
+     *
+     * @ORM\Column(name="rating_sum", type="integer", nullable=true)
+     */
+    private $ratingSum;
+    
 
     /**
      * Get id
@@ -127,5 +145,97 @@ class Game
     public function getPremiereDate()
     {
         return $this->premiereDate;
+    }
+
+    /**
+     * Set rating
+     *
+     * @param integer $rating
+     * @return Game
+     */
+    public function setRating($rating)
+    {
+        $this->rating = $rating;
+
+        return $this;
+    }
+
+    /**
+     * Get rating
+     *
+     * @return integer 
+     */
+    public function getRating()
+    {
+        return $this->rating;
+    }
+
+    /**
+     * Set ratingQuantity
+     *
+     * @param integer $ratingQuantity
+     * @return Game
+     */
+    public function setRatingQuantity($ratingQuantity)
+    {
+        $this->ratingQuantity = $ratingQuantity;
+
+        return $this;
+    }
+
+    /**
+     * Get ratingQuantity
+     *
+     * @return integer 
+     */
+    public function getRatingQuantity()
+    {
+        return $this->ratingQuantity;
+    }
+
+    /**
+     * Set ratingSum
+     *
+     * @param integer $ratingSum
+     * @return Game
+     */
+    public function setRatingSum($ratingSum)
+    {
+        $this->ratingSum = $ratingSum;
+
+        return $this;
+    }
+
+    /**
+     * Get ratingSum
+     *
+     * @return integer 
+     */
+    public function getRatingSum()
+    {
+        return $this->ratingSum;
+    }
+
+    /**
+     * Set voted
+     *
+     * @param boolean $voted
+     * @return Game
+     */
+    public function setVoted($voted)
+    {
+        $this->voted = $voted;
+
+        return $this;
+    }
+
+    /**
+     * Get voted
+     *
+     * @return boolean 
+     */
+    public function getVoted()
+    {
+        return $this->voted;
     }
 }
