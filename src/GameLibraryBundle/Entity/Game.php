@@ -46,12 +46,27 @@ class Game
     private $premiereDate;
 
     /**
-     * @var \integer
+     * @var \decimal
      *
-     * @ORM\Column(name="rating", type="integer", nullable=true)
+     * @ORM\Column(name="rating", type="decimal", scale=2, nullable=true)
      */
     private $rating;
 
+
+    /**
+     * @var \integer
+     *
+     * @ORM\Column(name="rating_quantity", type="integer", nullable=true)
+     */
+    private $ratingQuantity;
+
+    /**
+     * @var \integer
+     *
+     * @ORM\Column(name="rating_sum", type="integer", nullable=true)
+     */
+    private $ratingSum;
+    
 
     /**
      * Get id
@@ -154,4 +169,51 @@ class Game
     {
         return $this->rating;
     }
+
+    /**
+     * Set ratingQuantity
+     *
+     * @param integer $ratingQuantity
+     * @return Game
+     */
+    public function setRatingQuantity($ratingQuantity)
+    {
+        $this->ratingQuantity = $ratingQuantity;
+
+        return $this;
+    }
+
+    /**
+     * Get ratingQuantity
+     *
+     * @return integer 
+     */
+    public function getRatingQuantity()
+    {
+        return $this->ratingQuantity;
+    }
+
+    /**
+     * Set ratingSum
+     *
+     * @param integer $ratingSum
+     * @return Game
+     */
+    public function setRatingSum($ratingSum)
+    {
+        $this->ratingSum = $ratingSum;
+
+        return $this;
+    }
+
+    /**
+     * Get ratingSum
+     *
+     * @return integer 
+     */
+    public function getRatingSum()
+    {
+        return $this->ratingSum;
+    }
+
 }

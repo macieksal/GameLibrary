@@ -1,0 +1,64 @@
+{% extends 'GameLibraryBundle::base.html.twig' %}
+
+{% block body %}
+    <h1>Games list</h1>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Producer</th>
+            <th>Premiere date</th>
+            <th>Rating</th>
+            <th>Number of votes</th>
+            <th>Rate this game!</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for game in games %}
+            <tr>
+                <td><a href="{{ path('game_show', { 'id': game.id }) }}">{{ game.id }}</a></td>
+                <td>{{ game.title }}</td>
+                <td>{{ game.producer }}</td>
+                <td>{% if game.premiereDate %}{{ game.premiereDate|date('Y-m-d') }}{% endif %}</td>
+                <td id="ratingMy-{{ game.id }}">{{ game.rating }}</td>
+                <td id="votesMy-{{ game.id }}">{{ game.ratingQuantity }}</td>
+                <td>
+                    <fieldset class="rating" id="{{ game.id }}">
+                        <input type="radio" id="star5-{{game.id}}" name="rating-{{ game.id }}" value="10" /><label class = "full" for="star5-{{game.id}}" title="Awesome - 5 stars"></label>
+                        <input type="radio" id="star4half-{{game.id}}" name="rating-{{ game.id }}" value="9" /><label class="half" for="star4half-{{game.id}}" title="Pretty good - 4.5 stars"></label>
+                        <input type="radio" id="star4-{{game.id}}" name="rating-{{ game.id }}" value="8" /><label class = "full" for="star4-{{game.id}}" title="Pretty good - 4 stars"></label>
+                        <input type="radio" id="star3half-{{game.id}}" name="rating-{{ game.id }}" value="7" /><label class="half" for="star3half-{{game.id}}" title="Meh - 3.5 stars"></label>
+                        <input type="radio" id="star3-{{game.id}}" name="rating-{{ game.id }}" value="6" /><label class = "full" for="star3-{{game.id}}" title="Meh - 3 stars"></label>
+                        <input type="radio" id="star2half-{{game.id}}" name="rating-{{ game.id }}" value="5" /><label class="half" for="star2half-{{game.id}}" title="Kinda bad - 2.5 stars"></label>
+                        <input type="radio" id="star2-{{game.id}}" name="rating-{{ game.id }}" value="4" /><label class = "full" for="star2-{{game.id}}" title="Kinda bad - 2 stars"></label>
+                        <input type="radio" id="star1half-{{game.id}}" name="rating-{{ game.id }}" value="3" /><label class="half" for="star1half-{{game.id}}" title="Meh - 1.5 stars"></label>
+                        <input type="radio" id="star1-{{game.id}}" name="rating-{{ game.id }}" value="2" /><label class = "full" for="star1-{{game.id}}" title="Sucks big time - 1 star"></label>
+                        <input type="radio" id="starhalf-{{game.id}}" name="rating-{{ game.id }}" value="1" /><label class="half" for="starhalf-{{game.id}}" title="Sucks big time - 0.5 stars"></label>
+                    </fieldset>
+                </td>
+
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('game_show', { 'id': game.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('game_edit', { 'id': game.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('game_new') }}">Create a new game</a>
+        </li>
+    </ul>
+{% endblock %}
