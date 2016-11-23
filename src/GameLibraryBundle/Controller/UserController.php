@@ -48,12 +48,12 @@ class UserController extends Controller
     }
 
     /**
-     * @Route ("/editProfile/{id}", name="editProfile")
+     * @Route ("/editProfile/{username}", name="editProfile")
      * @Method({"GET", "POST"})
      * @Template ("GameLibraryBundle::editProfile.html.twig")
      */
 
-    public function editProfileAction (Request $request, User $user, $id) {
+    public function editProfileAction (Request $request, User $user) {
 
 
         $form = $this->createForm('GameLibraryBundle\Form\UserType', $user);
@@ -71,10 +71,7 @@ class UserController extends Controller
 
         return [
           'edit_form' => $form->createView(),
-            'id' => $id
         ];
     }
-
-
 
 }
