@@ -64,4 +64,9 @@
 */Entity/*~
 
 ### Symfony Patch ###
+.idea/GameLibrary.iml
+
+.idea/workspace.xml
+
+/web/css/rating.css
 

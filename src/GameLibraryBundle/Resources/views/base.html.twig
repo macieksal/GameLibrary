@@ -21,8 +21,66 @@
 
 </head>
 <body>
-{% block body %}{% endblock %}
-{% block javascripts %}{% endblock %}
+{{ app.user}} <br>
+{% if app.user is not null %}
+
+
+    <p><nav class="navbar navbar-inverse navbar-fixed-top">
+        <a href="{{ path('fos_user_profile_show')}}"  class="pull-right" ><img width=60px,  height=65px, src="/{{ app.user.picture }}"></a>
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{ path('default') }}">Game Library</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <form class="navbar-form navbar-right">
+
+                    <a href="{{ path('fos_user_security_logout') }}" class="btn btn-success">Wyloguj się</a>
+                    <a href="{{ path('editProfile', {'username': app.user}) }}" class="btn btn-success">Edytuj profila</a><br>
+                </form>
+            </div><!--/.navbar-collapse -->
+        </div>
+    </nav>
+{% else %}
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{ path('default') }}">Game Library</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <form class="navbar-form navbar-right" action="{{ path("fos_user_security_check") }}" method="post">
+
+
+                    <div class="form-group">
+                        <input type="text" placeholder="Username" id="username" name="_username"  required="required" />
+                    </div>
+                    <div class="form-group">
+                        <input type="password" placeholder="Password" id="password" name="_password" required="required" />
+                    </div>
+
+                    <input type="submit" id="_submit" name="_submit" class="btn btn-success" value="Zaloguj się" />
+                    <a href="{{ path('fos_user_registration_register') }}" class="btn btn-success">Register</a>
+                    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+                    <label for="remember_me">zapamiętaj mnie</label>
+                </form>
+            </div><!--/.navbar-collapse -->
+        </div>
+    </nav></p>
+{% endif %}<br>
+<p>{% block body %}{% endblock %}
+{% block javascripts %}{% endblock %}</p>
 
 <!-- Bootstrap core JavaScript
    ================================================== -->

@@ -50,6 +50,10 @@ li {
     list-style-type: none;
 }
 
+<<<<<<< HEAD
+.carousel-inner > .item > img {
+    margin: 0 auto;
+=======
 #dropdownSort {
     color: #333;
 }
@@ -59,4 +63,5 @@ li {
 
     display: block !important;
 
+>>>>>>> 4bce69e33a64bce306931e45297582903c0ef389
 }
