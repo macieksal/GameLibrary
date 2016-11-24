@@ -28,16 +28,24 @@ class GameController extends Controller
      * @Method("GET")
      * @Template ("GameLibraryBundle:game:index.html.twig")
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
         $games = $em->getRepository('GameLibraryBundle:Game')->findAll();
 
-        return array(
-            'games' => $games,
-        );
+        if ($this->getUser() != null) {
+            $game = new Game();
+            $form2 = $this->createForm('GameLibraryBundle\Form\GameType', $game);
+            $form2->handleRequest($request);
+
+
+        }
+
+        return array('form2' => $form2->createView(),
+            'games' => $games);
     }
+
 
     /**
      * Creates a new game entity.
@@ -184,7 +192,7 @@ class GameController extends Controller
         $em->flush();
 
 
-        $newGameRating =$game->getRating();
+        $newGameRating = $game->getRating();
 
 
         $array = array(
@@ -201,11 +209,12 @@ class GameController extends Controller
      * @Route ("/sortByHighestRating", name="byRating")
      * @Template ("GameLibraryBundle:game:index.html.twig")
      */
-    public function sortByHighestRatingAction () {
+    public function sortByHighestRatingAction()
+    {
 
         $repository = $this->getDoctrine()->getRepository('GameLibraryBundle:Game');
 
-        $games = $repository-> sortByRatingFromHighest();
+        $games = $repository->sortByRatingFromHighest();
 
         return ['games' => $games];
     }
@@ -214,11 +223,12 @@ class GameController extends Controller
      * @Route ("/sortByLowestRating", name="byLowRating")
      * @Template ("GameLibraryBundle:game:index.html.twig")
      */
-    public function sortByLowestRatingAction () {
+    public function sortByLowestRatingAction()
+    {
 
         $repository = $this->getDoctrine()->getRepository('GameLibraryBundle:Game');
 
-        $games = $repository-> sortByRatingFromLowest();
+        $games = $repository->sortByRatingFromLowest();
 
         return ['games' => $games];
     }
@@ -227,11 +237,12 @@ class GameController extends Controller
      * @Route ("/sortByPremiere", name="byPremiere")
      * @Template ("GameLibraryBundle:game:index.html.twig")
      */
-    public function sortByPremiereDateAction () {
+    public function sortByPremiereDateAction()
+    {
 
         $repository = $this->getDoctrine()->getRepository('GameLibraryBundle:Game');
 
-        $games = $repository-> sortByPremiereDate();
+        $games = $repository->sortByPremiereDate();
 
         return ['games' => $games];
     }
@@ -240,11 +251,12 @@ class GameController extends Controller
      * @Route ("/sortByTitle", name="byTitle")
      * @Template ("GameLibraryBundle:game:index.html.twig")
      */
-    public function sortByTitleAction () {
+    public function sortByTitleAction()
+    {
 
         $repository = $this->getDoctrine()->getRepository('GameLibraryBundle:Game');
 
-        $games = $repository-> sortByTitle();
+        $games = $repository->sortByTitle();
 
         return ['games' => $games];
     }
@@ -253,12 +265,47 @@ class GameController extends Controller
      * @Route ("/sortByTimeAdded", name="byTimeAdded")
      * @Template ("GameLibraryBundle:game:index.html.twig")
      */
-    public function sortByTimeAddedAction () {
+    public function sortByTimeAddedAction()
+    {
 
         $repository = $this->getDoctrine()->getRepository('GameLibraryBundle:Game');
 
-        $games = $repository-> sortByTimeAdded();
+        $games = $repository->sortByTimeAdded();
 
         return ['games' => $games];
+    }
+
+
+    /**
+     * @Route ("/newGameAjax", name="newGameAjax")
+     * @Method ("POST")
+     */
+    public function newGameAjaxAction(Request $request)
+    {
+
+        if ($this->getUser() != null) {
+            $game = new Game();
+            $form2 = $this->createForm('GameLibraryBundle\Form\GameType', $game);
+            $form2->handleRequest($request);
+
+            if ($form2->isSubmitted() && $form2->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($game);
+                $em->flush($game);
+
+                $array = array(
+                    'id' => $game->getId(),
+                    'title' => $game->getTitle(),
+                    'producer' => $game->getProducer(),
+                    'premiere' => $game->getPremiereDate()->format('Y-m-d')
+                );
+
+                return new JsonResponse($array);
+            }
+
+            return new JsonResponse(array('msg' => 'Adding error'));
+        }
+
+        return new JsonResponse(array('msg' => 'You must be logged in order to add games'));
     }
 }
