@@ -3,55 +3,60 @@
 {% block body %}
     <h1>Games list</h1>
 
-    <table class="table table-striped">
+    <table id ="myTable" class="table table-striped">
         <thead>
         <tr>
-            <th>Id</th>
-            <th>Title</th>
-            <th>Producer</th>
-            <th>Premiere date</th>
-            <th>Rating</th>
-            <th>Number of votes</th>
+            <th>Id<span class="caret"></span></th>
+            <th>Title<span class="caret"></span></th>
+            <th>Producer<span class="caret"></span></th>
+            <th>Premiere date<span class="caret"></span></th>
+            <th>Rating<span class="caret"></span></th>
+            <th>Number of votes<span class="caret"></span></th>
             <th>Rate this game!</th>
-            <th><li class="dropdown" color="#333">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+            <th><li class="dropdown">
+                    <a href="#" id="dropdownSort" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sort by<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">By title</a></li>
-                        <li><a href="#">By date of addition</a></li>
-                        <li><a href="#">By premiere date</a></li>
+                        <li><a href="{{ path('byTitle') }}">By title</a></li>
+                        <li><a href="{{ path('byTimeAdded') }}">By time added</a></li>
+                        <li><a href="{{ path('byPremiere') }}">By premiere date</a></li>
                         <li role="separator" class="divider"></li>
                         <li class="dropdown-header">By rating</li>
-                        <li><a href="#">The best games</a></li>
-                        <li><a href="#">The worst games</a></li>
+                        <li><a href="{{ path('byRating') }}">The best games</a></li>
+                        <li><a href="{{ path('byLowRating') }}">The worst games</a></li>
                     </ul>
                 </li></th>
             <th>Actions</th>
         </tr>
         </thead>
-        <tbody>
+        <tbody id="gierki2">
         {% for game in games %}
-            <tr>
-                <td><a href="{{ path('game_show', { 'id': game.id }) }}">{{ game.id }}</a></td>
-                <td>{{ game.title }}</td>
-                <td>{{ game.producer }}</td>
-                <td>{% if game.premiereDate %}{{ game.premiereDate|date('Y-m-d') }}{% endif %}</td>
+            <tr class="gierki">
+                <td id="id"><a href="{{ path('game_show', { 'id': game.id }) }}">{{ game.id }}</a></td>
+                <td id="title">{{ game.title }}</td>
+                <td id="producer">{{ game.producer }}</td>
+                <td id="premiere">{% if game.premiereDate %}{{ game.premiereDate|date('Y-m-d') }}{% endif %}</td>
                 <td id="ratingMy-{{ game.id }}">{{ game.rating }}</td>
                 <td id="votesMy-{{ game.id }}">{{ game.ratingQuantity }}</td>
                 <td>
-                    <fieldset class="rating" id="{{ game.id }}">
-                        <input type="radio" id="star5-{{game.id}}" name="rating-{{ game.id }}" value="10" /><label class = "full" for="star5-{{game.id}}" title="Awesome - 5 stars"></label>
-                        <input type="radio" id="star4half-{{game.id}}" name="rating-{{ game.id }}" value="9" /><label class="half" for="star4half-{{game.id}}" title="Pretty good - 4.5 stars"></label>
-                        <input type="radio" id="star4-{{game.id}}" name="rating-{{ game.id }}" value="8" /><label class = "full" for="star4-{{game.id}}" title="Pretty good - 4 stars"></label>
-                        <input type="radio" id="star3half-{{game.id}}" name="rating-{{ game.id }}" value="7" /><label class="half" for="star3half-{{game.id}}" title="Meh - 3.5 stars"></label>
-                        <input type="radio" id="star3-{{game.id}}" name="rating-{{ game.id }}" value="6" /><label class = "full" for="star3-{{game.id}}" title="Meh - 3 stars"></label>
-                        <input type="radio" id="star2half-{{game.id}}" name="rating-{{ game.id }}" value="5" /><label class="half" for="star2half-{{game.id}}" title="Kinda bad - 2.5 stars"></label>
-                        <input type="radio" id="star2-{{game.id}}" name="rating-{{ game.id }}" value="4" /><label class = "full" for="star2-{{game.id}}" title="Kinda bad - 2 stars"></label>
-                        <input type="radio" id="star1half-{{game.id}}" name="rating-{{ game.id }}" value="3" /><label class="half" for="star1half-{{game.id}}" title="Meh - 1.5 stars"></label>
-                        <input type="radio" id="star1-{{game.id}}" name="rating-{{ game.id }}" value="2" /><label class = "full" for="star1-{{game.id}}" title="Sucks big time - 1 star"></label>
-                        <input type="radio" id="starhalf-{{game.id}}" name="rating-{{ game.id }}" value="1" /><label class="half" for="starhalf-{{game.id}}" title="Sucks big time - 0.5 stars"></label>
+                    <fieldset class='rating' id='{{ game.id }}'>
+                        <input type='radio' id='star5-{{game.id}}' name='rating-{{ game.id }}' value='10' /><label class = 'full' for='star5-{{game.id}}' title='Awesome - 5 stars'></label>
+                        <input type='radio' id='star4half-{{game.id}}' name='rating-{{ game.id }}' value='9' /><label class='half' for='star4half-{{game.id}}' title='Pretty good - 4.5 stars'></label>
+                        <input type='radio' id='star4-{{game.id}}' name='rating-{{ game.id }}' value='8' /><label class = 'full' for='star4-{{game.id}}' title='Pretty good - 4 stars'></label>
+                        <input type='radio' id='star3half-{{game.id}}' name='rating-{{ game.id }}' value='7' /><label class='half' for='star3half-{{game.id}}' title='Meh - 3.5 stars'></label>
+                        <input type='radio' id='star3-{{game.id}}' name='rating-{{ game.id }}' value='6' /><label class = 'full' for='star3-{{game.id}}' title='Meh - 3 stars'></label>
+                        <input type='radio' id='star2half-{{game.id}}' name='rating-{{ game.id }}' value='5' /><label class='half' for='star2half-{{game.id}}' title='Kinda bad - 2.5 stars'></label>
+                        <input type='radio' id='star2-{{game.id}}' name='rating-{{ game.id }}' value='4' /><label class = 'full' for='star2-{{game.id}}' title='Kinda bad - 2 stars'></label>
+                        <input type='radio' id='star1half-{{game.id}}' name='rating-{{ game.id }}' value='3' /><label class='half' for='star1half-{{game.id}}' title='Meh - 1.5 stars'></label>
+                        <input type='radio' id='star1-{{game.id}}' name='rating-{{ game.id }}' value='2' /><label class = 'full' for='star1-{{game.id}}' title='Sucks big time - 1 star'></label>
+                        <input type='radio' id='starhalf-{{game.id}}' name='rating-{{ game.id }}' value='1' /><label class='half' for='starhalf-{{game.id}}' title='Sucks big time - 0.5 stars'></label>
                     </fieldset>
                 </td>
-                <td></td>
+                <td>{% if path(app.request.attributes.get('_route')) ends with 'ByHighestRating' %}Sorting by rating
+                    {% elseif path(app.request.attributes.get('_route')) ends with 'ByLowestRating' %}Sorting by increasing rating
+                    {% elseif path(app.request.attributes.get('_route')) ends with 'ByTitle' %}Sorting by title
+                    {% elseif path(app.request.attributes.get('_route')) ends with 'ByTimeAdded' %}Sorting by time added
+                    {% elseif path(app.request.attributes.get('_route')) ends with 'ByPremiere' %}Sorting by premiere date
+                    {% endif %}</td>
                 <td>
                     <ul class="actions">
                         <li>
