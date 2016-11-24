@@ -53,3 +53,10 @@ li {
 #dropdownSort {
     color: #333;
 }
+
+
+.expand {
+
+    display: block !important;
+
+}

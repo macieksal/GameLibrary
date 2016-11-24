@@ -2,11 +2,15 @@ $(document).ready(function () {
 
     $('#myTable').tablesorter();
 
-    $('.rating input').on('change', function (event) {
+    $('#gierki2').on('change', '.rating input', function (event) {
         //alert($(this).parent().find(':checked').val());
 
         event.preventDefault();
 
+        //alert($(this).val());
+        //alert($(this).parent().attr('id'));
+
+        console.log($(this), event);
         $.ajax({
             url: '/game/rate',
             type: "POST",
@@ -16,6 +20,7 @@ $(document).ready(function () {
             },
 
         }).done(function (result) {
+
 
             $('#votesMy-' + result.id + '').text(result.votes);
             $('#ratingMy-' + result.id + '').text(result.rating.toFixed(2));

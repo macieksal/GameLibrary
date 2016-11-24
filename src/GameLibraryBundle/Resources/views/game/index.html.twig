@@ -30,7 +30,7 @@
         </thead>
         <tbody id="gierki2">
         {% for game in games %}
-            <tr class="gierki">
+            <tr id='gra' class="gierki">
                 <td id="id"><a href="{{ path('game_show', { 'id': game.id }) }}">{{ game.id }}</a></td>
                 <td id="title">{{ game.title }}</td>
                 <td id="producer">{{ game.producer }}</td>
@@ -75,7 +75,16 @@
 
     <ul>
         <li>
-            <a href="{{ path('game_new') }}">Create a new game</a>
+           <button class="btn btn-lg btn-primary" id="createGame">Create a new game</button>
         </li>
+
     </ul>
+
+    <div id="createGameAjaxForm" class="hide">
+        {{ form_start(form2) }}
+        {{ form_widget(form2) }}
+        <input type="submit" value="Add new game" id="submit2"/>
+        {{ form_end(form2) }}
+    </div>
+
 {% endblock %}
