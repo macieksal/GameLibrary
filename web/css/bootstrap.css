@@ -3517,6 +3517,7 @@ a.btn.disabled, fieldset[disabled] a.btn {
 }
 
 .btn-success {
+    margin-top:15px;
     color: #fff;
     background-color: #5cb85c;
     border-color: #4cae4c
@@ -4614,8 +4615,10 @@ select[multiple].input-group-sm > .form-control, select[multiple].input-group-sm
     float: left;
     height: 50px;
     padding: 15px 15px;
-    font-size: 18px;
-    line-height: 20px
+    font-size: 35px;
+    line-height: 20px;
+    margin-top: 15px;
+
 }
 
 .navbar-brand:focus, .navbar-brand:hover {

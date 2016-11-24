@@ -8,10 +8,17 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/")
+     * @Route("/", name="default")
      */
     public function indexAction()
     {
-        return $this->render('GameLibraryBundle::template.html.twig');
+        $em = $this->getDoctrine()->getManager();
+
+        $games = $em->getRepository('GameLibraryBundle:Game')->findAll();
+        return $this->render('GameLibraryBundle::template.html.twig', array (
+            'games' => $games
+        ));
     }
+
+
 }

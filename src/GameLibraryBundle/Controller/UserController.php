@@ -55,16 +55,25 @@ class UserController extends Controller
 
     public function editProfileAction (Request $request, User $user) {
 
-
+        $oldpicture=$user->getPicture();
         $form = $this->createForm('GameLibraryBundle\Form\UserType', $user);
 
         $form->handleRequest($request);
+        $picture=$user->getPicture();
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $image = $form->get('picture')->getData();
-            $this->fileHandle($image, $user);
-            $this->getDoctrine()->getManager()->flush();
+            $this->fileHandle($picture, $user);
+            if(!$user->getPicture()){
+                $user->setPicture($oldpicture);
+            }
 
+
+               // $this->fileHandle($image, $user);
+               // $user->setPicture($image);
+       // }
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($user);
+            $em->flush($user);
 
             return $this->redirectToRoute('fos_user_profile_show', array('id' => $user->getId()));
         }
