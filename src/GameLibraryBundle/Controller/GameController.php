@@ -3,6 +3,9 @@
 namespace GameLibraryBundle\Controller;
 
 use GameLibraryBundle\Entity\Game;
+use JMS\Serializer\Serializer;
+use JMS\Serializer\SerializerBuilder;
+use JMS\SerializerBundle\Templating\SerializerHelper;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -14,7 +17,7 @@ use Symfony\Component\HttpFoundation\Response;
 /**
  * Game controller.
  *
- * @Route("game")
+ * @Route("/game")
  */
 class GameController extends Controller
 {
@@ -70,7 +73,7 @@ class GameController extends Controller
     /**
      * Finds and displays a game entity.
      *
-     * @Route("/{id}", name="game_show")
+     * @Route("/show/{id}", name="game_show")
      * @Method("GET")
      * @Template ("GameLibraryBundle:game:show.html.twig")
      */
@@ -104,6 +107,7 @@ class GameController extends Controller
      *
      * @Route("/{id}/edit", name="game_edit")
      * @Method({"GET", "POST"})
+     * @Template ("GameLibraryBundle:game:edit.html.twig")
      */
     public function editAction(Request $request, Game $game)
     {
@@ -118,11 +122,11 @@ class GameController extends Controller
                 return $this->redirectToRoute('game_edit', array('id' => $game->getId()));
             }
 
-            return $this->render('game/edit.html.twig', array(
+            return array(
                 'game' => $game,
                 'edit_form' => $editForm->createView(),
                 'delete_form' => $deleteForm->createView(),
-            ));
+            );
         }
 
         return new Response('<html><head><title>Access denied</title></head><body>You must be logged to edit game.</body>');
@@ -191,5 +195,70 @@ class GameController extends Controller
 
         return new JsonResponse($array);
 
+    }
+
+    /**
+     * @Route ("/sortByHighestRating", name="byRating")
+     * @Template ("GameLibraryBundle:game:index.html.twig")
+     */
+    public function sortByHighestRatingAction () {
+
+        $repository = $this->getDoctrine()->getRepository('GameLibraryBundle:Game');
+
+        $games = $repository-> sortByRatingFromHighest();
+
+        return ['games' => $games];
+    }
+
+    /**
+     * @Route ("/sortByLowestRating", name="byLowRating")
+     * @Template ("GameLibraryBundle:game:index.html.twig")
+     */
+    public function sortByLowestRatingAction () {
+
+        $repository = $this->getDoctrine()->getRepository('GameLibraryBundle:Game');
+
+        $games = $repository-> sortByRatingFromLowest();
+
+        return ['games' => $games];
+    }
+
+    /**
+     * @Route ("/sortByPremiere", name="byPremiere")
+     * @Template ("GameLibraryBundle:game:index.html.twig")
+     */
+    public function sortByPremiereDateAction () {
+
+        $repository = $this->getDoctrine()->getRepository('GameLibraryBundle:Game');
+
+        $games = $repository-> sortByPremiereDate();
+
+        return ['games' => $games];
+    }
+
+    /**
+     * @Route ("/sortByTitle", name="byTitle")
+     * @Template ("GameLibraryBundle:game:index.html.twig")
+     */
+    public function sortByTitleAction () {
+
+        $repository = $this->getDoctrine()->getRepository('GameLibraryBundle:Game');
+
+        $games = $repository-> sortByTitle();
+
+        return ['games' => $games];
+    }
+
+    /**
+     * @Route ("/sortByTimeAdded", name="byTimeAdded")
+     * @Template ("GameLibraryBundle:game:index.html.twig")
+     */
+    public function sortByTimeAddedAction () {
+
+        $repository = $this->getDoctrine()->getRepository('GameLibraryBundle:Game');
+
+        $games = $repository-> sortByTimeAdded();
+
+        return ['games' => $games];
     }
 }

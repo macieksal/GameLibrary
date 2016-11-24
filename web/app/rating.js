@@ -1,5 +1,6 @@
 $(document).ready(function () {
 
+    $('#myTable').tablesorter();
 
     $('.rating input').on('change', function (event) {
         //alert($(this).parent().find(':checked').val());
