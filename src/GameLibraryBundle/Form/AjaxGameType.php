@@ -7,7 +7,7 @@ use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class GameType extends AbstractType
+class AjaxGameType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -15,9 +15,9 @@ class GameType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('title')->add('producer')->add('premiereDate')
-            ->add('categories')->add('pic' , 'file', array('data_class' => null));
+            ->add('categories');
     }
-    
+
     /**
      * {@inheritdoc}
      */
