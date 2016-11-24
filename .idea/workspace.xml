@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="92cf85d1-7b83-46b3-afb2-b3f501bcf3f5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GameLibraryBundle/Controller/GameController.php" afterPath="$PROJECT_DIR$/src/GameLibraryBundle/Controller/GameController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GameLibraryBundle/Resources/views/base.html.twig" afterPath="$PROJECT_DIR$/src/GameLibraryBundle/Resources/views/base.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GameLibraryBundle/Resources/views/game/index.html.twig" afterPath="$PROJECT_DIR$/src/GameLibraryBundle/Resources/views/game/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/app/rating.js" afterPath="$PROJECT_DIR$/web/app/rating.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/rating.css" afterPath="$PROJECT_DIR$/web/css/rating.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/app/createGame.js" afterPath="$PROJECT_DIR$/web/app/createGame.js" />
     </list>
     <ignored path="GameLibrary.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,14 +28,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="GameController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GameController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GameLibraryBundle/Controller/GameController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="825">
+            <state relative-caret-position="420">
               <caret line="299" column="75" selection-start-line="299" selection-start-column="75" selection-end-line="299" selection-end-column="75" />
               <folding>
                 <element signature="e#48#82#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="createGame.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/app/createGame.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="525">
+              <caret line="35" column="28" selection-start-line="35" selection-start-column="28" selection-end-line="35" selection-end-column="28" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -651,12 +657,12 @@
       <workItem from="1479890702310" duration="70000" />
       <workItem from="1479890798387" duration="26125000" />
       <workItem from="1479919956483" duration="155000" />
-      <workItem from="1479920317717" duration="30434000" />
+      <workItem from="1479920317717" duration="30602000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56784000" />
+    <option name="totallyTimeSpent" value="56952000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="686" y="292" width="1283" height="842" extended-state="0" />
@@ -1040,14 +1046,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/app/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/css/rating.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="829">
@@ -1080,21 +1078,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/app/createGame.js">
+    <entry file="file://$PROJECT_DIR$/web/app/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="444">
-          <caret line="60" column="22" selection-start-line="60" selection-start-column="22" selection-end-line="60" selection-end-column="22" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GameLibraryBundle/Controller/GameController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="825">
+        <state relative-caret-position="420">
           <caret line="299" column="75" selection-start-line="299" selection-start-column="75" selection-end-line="299" selection-end-column="75" />
           <folding>
             <element signature="e#48#82#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/app/createGame.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="35" column="28" selection-start-line="35" selection-start-column="28" selection-end-line="35" selection-end-column="28" />
+          <folding />
         </state>
       </provider>
     </entry>
