@@ -2,6 +2,7 @@
 
 namespace GameLibraryBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -66,7 +67,28 @@ class Game
      * @ORM\Column(name="rating_sum", type="integer", nullable=true)
      */
     private $ratingSum;
-    
+
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Category", inversedBy="games")
+     * @ORM\JoinTable(name="games_categories")
+     */
+    protected $categories;
+
+    public function __construct() {
+        $this->categories = new ArrayCollection();
+    }
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="pic", type="string", length=255, nullable=true)
+     *
+     * @Assert\File(mimeTypes={"image/jpeg"})
+     */
+    private $pic;
+
+
 
     /**
      * Get id
@@ -216,4 +238,65 @@ class Game
         return $this->ratingSum;
     }
 
+
+    /**
+     * Add categories
+     *
+     * @param \GameLibraryBundle\Entity\Category $categories
+     * @return Game
+     */
+    public function addCategory(\GameLibraryBundle\Entity\Category $category)
+    {
+        $this->categories[] = $category;
+
+        return $this;
+    }
+
+    /**
+     * Remove categories
+     *
+     * @param \GameLibraryBundle\Entity\Category $categories
+     */
+    public function removeCategory(\GameLibraryBundle\Entity\Category $categories)
+    {
+        $this->categories->removeElement($categories);
+    }
+
+    /**
+     * Get categories
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCategories()
+    {
+        return $this->categories;
+    }
+
+    public function __toString()
+    {
+        return $this->title;
+    }
+
+    /**
+     * Set pic
+     *
+     * @param string $pic
+     * @return Game
+     */
+    public function setPic($pic)
+    {
+        $this->pic = $pic;
+
+        return $this;
+    }
+
+    /**
+     * Get pic
+     *
+     * @return string 
+     */
+    public function getPic()
+    {
+        return $this->pic;
+    }
 }

@@ -3,19 +3,17 @@
 namespace GameLibraryBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class GameType extends AbstractType
+class CategoryType extends AbstractType
 {
     /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('title')->add('producer')->add('premiereDate')
-            ->add('categories')->add('pic' , 'file', array('data_class' => null));
+        $builder->add('name')->add('games');
     }
     
     /**
@@ -24,7 +22,7 @@ class GameType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'GameLibraryBundle\Entity\Game'
+            'data_class' => 'GameLibraryBundle\Entity\Category'
         ));
     }
 
@@ -33,7 +31,7 @@ class GameType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'gamelibrarybundle_game';
+        return 'gamelibrarybundle_category';
     }
 
 

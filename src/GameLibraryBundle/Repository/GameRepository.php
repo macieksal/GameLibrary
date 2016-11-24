@@ -12,4 +12,60 @@ use Doctrine\ORM\EntityRepository;
  */
 class GameRepository extends EntityRepository
 {
+
+    public function sortByRatingFromHighest () {
+
+        $em = $this->getEntityManager();
+
+        $query = $em -> createQuery("SELECT game FROM GameLibraryBundle:Game game ORDER BY game.rating DESC");
+
+        $games = $query -> getResult();
+
+        return $games;
+    }
+
+    public function sortByRatingFromLowest () {
+
+        $em = $this->getEntityManager();
+
+        $query = $em -> createQuery("SELECT game FROM GameLibraryBundle:Game game ORDER BY game.rating");
+
+        $games = $query -> getResult();
+
+        return $games;
+    }
+
+    public function sortByPremiereDate () {
+
+        $em = $this->getEntityManager();
+
+        $query = $em -> createQuery("SELECT game FROM GameLibraryBundle:Game game ORDER BY game.premiereDate");
+
+        $games = $query -> getResult();
+
+        return $games;
+    }
+
+    public function sortByTitle () {
+
+        $em = $this->getEntityManager();
+
+        $query = $em -> createQuery("SELECT game FROM GameLibraryBundle:Game game ORDER BY game.title");
+
+        $games = $query -> getResult();
+
+        return $games;
+    }
+
+    public function sortByTimeAdded () {
+
+        $em = $this->getEntityManager();
+
+        $query = $em -> createQuery("SELECT game FROM GameLibraryBundle:Game game ORDER BY game.id");
+
+        $games = $query -> getResult();
+
+        return $games;
+    }
+
 }
