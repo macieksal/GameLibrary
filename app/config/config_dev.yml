@@ -32,3 +32,13 @@ monolog:
 
 #swiftmailer:
 #    delivery_address: me@example.com
+
+twig:
+  cache: false
+  debug: true
+
+services:
+  twig.extension.debug:
+    class:            Twig_Extension_Debug
+    tags:
+        - { name: 'twig.extension' }
