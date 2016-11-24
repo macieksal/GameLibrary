@@ -67,8 +67,14 @@
                         </li>
                     </ul>
                 </td>
+            <tr><td>Categories:
 
+            {% for key in game.categories %}
+                <a href="{{ path('category_show', { 'id': key.id }) }}">{{ key }}</a>
+                {% endfor %}
+            </td></tr>
             </tr>
+
         {% endfor %}
         </tbody>
     </table>

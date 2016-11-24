@@ -3,6 +3,7 @@
 namespace GameLibraryBundle\Controller;
 
 use GameLibraryBundle\Entity\Game;
+use GameLibraryBundle\Entity\Category;
 use JMS\Serializer\Serializer;
 use JMS\Serializer\SerializerBuilder;
 use JMS\SerializerBundle\Templating\SerializerHelper;
@@ -36,7 +37,7 @@ class GameController extends Controller
 
         if ($this->getUser() != null) {
             $game = new Game();
-            $form2 = $this->createForm('GameLibraryBundle\Form\GameType', $game);
+            $form2 = $this->createForm('GameLibraryBundle\Form\AjaxGameType', $game);
             $form2->handleRequest($request);
 
 
@@ -58,10 +59,13 @@ class GameController extends Controller
 
         if ($this->getUser() != null) {
             $game = new Game();
+
             $form = $this->createForm('GameLibraryBundle\Form\GameType', $game);
             $form->handleRequest($request);
 
             if ($form->isSubmitted() && $form->isValid()) {
+                $image = $form->get('pic')->getData();
+                $this->fileHandle($image, $game);
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($game);
                 $em->flush($game);
@@ -285,7 +289,7 @@ class GameController extends Controller
 
         if ($this->getUser() != null) {
             $game = new Game();
-            $form2 = $this->createForm('GameLibraryBundle\Form\GameType', $game);
+            $form2 = $this->createForm('GameLibraryBundle\Form\AjaxGameType', $game);
             $form2->handleRequest($request);
 
             if ($form2->isSubmitted() && $form2->isValid()) {
@@ -308,4 +312,25 @@ class GameController extends Controller
 
         return new JsonResponse(array('msg' => 'You must be logged in order to add games'));
     }
+
+    private function fileHandle ($file, $user) {
+
+        $dir = $this->container->getParameter('kernel.root_dir') . '/../web/uploads/';
+
+        if (!$file)
+            return;
+
+        $fileName = $user->getPic();
+
+        if (!empty($fileName) && file_exists($dir . $fileName)) {
+            unlink($dir . $fileName);
+        }
+
+        $fileName = md5(uniqid()) . '.' . $file->guessExtension();
+        $file->move($dir, $fileName);
+
+        $user->setPic($fileName);
+
+    }
+
 }

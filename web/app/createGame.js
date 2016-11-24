@@ -33,6 +33,7 @@ $(document).ready(function () {
                 $(children[5]).text(null).attr('id', 'votesMy-' + result.id);
                 $(children[6]).find('fieldset').attr('id', result.id);
                 var fieldset =  $(children[6]).find('fieldset');
+                $(children[8]).find('a').attr('href', '/game/' +result.id + '/show');
                 $(children[8]).find('a').attr('href', '/game/' +result.id + '/edit');
 
 

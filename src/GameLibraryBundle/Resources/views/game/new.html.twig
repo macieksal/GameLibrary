@@ -4,7 +4,22 @@
     <h1>Game creation</h1>
 
     {{ form_start(form) }}
-        {{ form_widget(form) }}
+    <div>
+        {{ form_label(form.title) }}
+        {{ form_widget(form.title) }}
+    </div>
+    <div>
+        {{ form_label(form.producer) }}
+        {{ form_widget(form.producer) }}
+    </div>
+    <div>
+        {{ form_label(form.premiereDate) }}
+        {{ form_widget(form.premiereDate) }}
+    </div>
+    <div>
+        {{ form_label(form.categories) }}
+        {{ form_widget(form.categories) }}
+    </div>
         <input type="submit" value="Create" />
     {{ form_end(form) }}
 
