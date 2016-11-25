@@ -44,7 +44,13 @@ class GameController extends Controller
         }
 
         return array('form2' => $form2->createView(),
+<<<<<<< HEAD
             'games' => $games);
+=======
+            'games' => $games,
+            'form3' => $form3->createView(),
+        );
+>>>>>>> fc0cd96... search
     }
 
 
@@ -73,6 +79,19 @@ class GameController extends Controller
                 return $this->redirectToRoute('game_show', array('id' => $game->getId()));
             }
 
+<<<<<<< HEAD
+=======
+            if ($form3->isSubmitted() && $form3->isValid()) {
+
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($comment);
+                $em->flush($comment);
+
+                return array('id' => $comment->getId());
+            }
+
+
+>>>>>>> fc0cd96... search
             return $this->render('GameLibraryBundle:game:new.html.twig', array(
                 'game' => $game,
                 'form' => $form->createView(),
@@ -80,6 +99,27 @@ class GameController extends Controller
         }
 
         return new Response('<html><head><title>Access denied</title></head><body>You must be logged to add a new game to the library.</body>');
+    }
+
+    private function fileHandle($file, $user)
+    {
+
+        $dir = $this->container->getParameter('kernel.root_dir') . '/../web/uploads/';
+
+        if (!$file)
+            return;
+
+        $fileName = $user->getPic();
+
+        if (!empty($fileName) && file_exists($dir . $fileName)) {
+            unlink($dir . $fileName);
+        }
+
+        $fileName = md5(uniqid()) . '.' . $file->guessExtension();
+        $file->move($dir, $fileName);
+
+        $user->setPic($fileName);
+
     }
 
     /**
@@ -220,7 +260,21 @@ class GameController extends Controller
 
         $games = $repository->sortByRatingFromHighest();
 
+<<<<<<< HEAD
         return ['games' => $games];
+=======
+        $game = new Game();
+        $form2 = $this->createForm('GameLibraryBundle\Form\AjaxGameType', $game);
+        $form2->handleRequest($request);
+
+        $comment = new Comment();
+        $form3 = $this->createForm('GameLibraryBundle\Form\CommentType', $comment);
+        $form3->handleRequest($request);
+
+        return ['games' => $games,
+            'form2' => $form2->createView(),
+            'form3' => $form3->createView()];
+>>>>>>> fc0cd96... search
     }
 
     /**
@@ -234,7 +288,21 @@ class GameController extends Controller
 
         $games = $repository->sortByRatingFromLowest();
 
+<<<<<<< HEAD
         return ['games' => $games];
+=======
+        $game = new Game();
+        $form2 = $this->createForm('GameLibraryBundle\Form\AjaxGameType', $game);
+        $form2->handleRequest($request);
+
+        $comment = new Comment();
+        $form3 = $this->createForm('GameLibraryBundle\Form\CommentType', $comment);
+        $form3->handleRequest($request);
+
+        return ['games' => $games,
+            'form2' => $form2->createView(),
+            'form3' => $form3->createView()];
+>>>>>>> fc0cd96... search
     }
 
     /**
@@ -248,7 +316,21 @@ class GameController extends Controller
 
         $games = $repository->sortByPremiereDate();
 
+<<<<<<< HEAD
         return ['games' => $games];
+=======
+        $game = new Game();
+        $form2 = $this->createForm('GameLibraryBundle\Form\AjaxGameType', $game);
+        $form2->handleRequest($request);
+
+        $comment = new Comment();
+        $form3 = $this->createForm('GameLibraryBundle\Form\CommentType', $comment);
+        $form3->handleRequest($request);
+
+        return ['games' => $games,
+            'form2' => $form2->createView(),
+            'form3' => $form3->createView()];
+>>>>>>> fc0cd96... search
     }
 
     /**
@@ -262,7 +344,21 @@ class GameController extends Controller
 
         $games = $repository->sortByTitle();
 
+<<<<<<< HEAD
         return ['games' => $games];
+=======
+        $game = new Game();
+        $form2 = $this->createForm('GameLibraryBundle\Form\AjaxGameType', $game);
+        $form2->handleRequest($request);
+
+        $comment = new Comment();
+        $form3 = $this->createForm('GameLibraryBundle\Form\CommentType', $comment);
+        $form3->handleRequest($request);
+
+        return ['games' => $games,
+            'form2' => $form2->createView(),
+            'form3' => $form3->createView()];
+>>>>>>> fc0cd96... search
     }
 
     /**
@@ -272,65 +368,53 @@ class GameController extends Controller
     public function sortByTimeAddedAction()
     {
 
+
+
         $repository = $this->getDoctrine()->getRepository('GameLibraryBundle:Game');
 
         $games = $repository->sortByTimeAdded();
 
+<<<<<<< HEAD
         return ['games' => $games];
-    }
-
-
-    /**
-     * @Route ("/newGameAjax", name="newGameAjax")
-     * @Method ("POST")
-     */
-    public function newGameAjaxAction(Request $request)
-    {
-
-        if ($this->getUser() != null) {
-            $game = new Game();
-            $form2 = $this->createForm('GameLibraryBundle\Form\AjaxGameType', $game);
-            $form2->handleRequest($request);
-
-            if ($form2->isSubmitted() && $form2->isValid()) {
-                $em = $this->getDoctrine()->getManager();
-                $em->persist($game);
-                $em->flush($game);
-
-                $array = array(
-                    'id' => $game->getId(),
-                    'title' => $game->getTitle(),
-                    'producer' => $game->getProducer(),
-                    'premiere' => $game->getPremiereDate()->format('Y-m-d')
-                );
-
-                return new JsonResponse($array);
-            }
-
-            return new JsonResponse(array('msg' => 'Adding error'));
-        }
+=======
+        $game = new Game();
+        $form2 = $this->createForm('GameLibraryBundle\Form\AjaxGameType', $game);
+        $form2->handleRequest($request);
++
+        $comment = new Comment();
+        $form3 = $this->createForm('GameLibraryBundle\Form\CommentType', $comment);
+        $form3->handleRequest($request);
 
         return new JsonResponse(array('msg' => 'You must be logged in order to add games'));
+>>>>>>> fc0cd96... search
     }
 
-    private function fileHandle ($file, $user) {
+    /**
+     * @Route ("/search")
+     * @Template ("GameLibraryBundle:game:index.html.twig")
+     */
+    public function SearchAction(Request $request)
+    {
 
-        $dir = $this->container->getParameter('kernel.root_dir') . '/../web/uploads/';
+        $string = $request->request->get('search');
 
-        if (!$file)
-            return;
+        $repository = $this->getDoctrine()->getRepository('GameLibraryBundle:Game');
 
-        $fileName = $user->getPic();
+        $games = $repository->Search($string);
 
-        if (!empty($fileName) && file_exists($dir . $fileName)) {
-            unlink($dir . $fileName);
-        }
+        $game = new Game();
+        $form2 = $this->createForm('GameLibraryBundle\Form\AjaxGameType', $game);
+        $form2->handleRequest($request);
 
-        $fileName = md5(uniqid()) . '.' . $file->guessExtension();
-        $file->move($dir, $fileName);
+        $comment = new Comment();
+        $form3 = $this->createForm('GameLibraryBundle\Form\CommentType', $comment);
+        $form3->handleRequest($request);
 
-        $user->setPic($fileName);
+        return new Response($string);
 
+        return ['games' => $games,
+            'form2' => $form2->createView(),
+            'form3' => $form3->createView()];
     }
 
 }

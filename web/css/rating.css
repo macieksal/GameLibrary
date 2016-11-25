@@ -58,5 +58,51 @@ li {
 .expand {
 
     display: block !important;
+<<<<<<< HEAD
 
+=======
+}
+
+#avatar {
+
+    height: 65px;
+    width: 100px;
+    border: 1px solid black;
+    border-radius: 0.5em;
+    margin-right: 5em;
+    margin-top: 0.4em;
+    margin-bottom: 0.4em;
+}
+
+
+h1 {
+    margin-top: 20px;
+    width: 50%;
+}
+
+.addComment {
+    margin-right: 2em;
+    margin-left: 2em;
+}
+
+.hide {
+    display: none;
+}
+
+.komenty {
+
+    background-color: white;
+    color: black
+}
+
+.komenty td {
+    width: 100%;
+
+    border-radius: 5px;
+    background-color: white;
+}
+
+#kek {
+    width: 40%;
+>>>>>>> fc0cd96... search
 }

@@ -68,4 +68,16 @@ class GameRepository extends EntityRepository
         return $games;
     }
 
+    public function Search ($string) {
+
+        $em = $this->getEntityManager();
+
+        $query = $em -> createQuery("SELECT game FROM GameLibraryBundle:Game game WHERE game.title LIKE :like")
+            ->setParameter('like', "%$string%");
+
+        $games = $query -> getResult();
+
+        return $games;
+    }
+
 }

@@ -299,4 +299,41 @@ class Game
     {
         return $this->pic;
     }
+<<<<<<< HEAD
+=======
+
+    /**
+     * Add comments
+     *
+     * @param \GameLibraryBundle\Entity\Comment $comments
+     * @return Game
+     */
+    public function addComment(\GameLibraryBundle\Entity\Comment $comments)
+    {
+        $this->comments[] = $comments;
+
+        return $this;
+    }
+
+    /**
+     * Remove comments
+     *
+     * @param \GameLibraryBundle\Entity\Comment $comments
+     */
+    public function removeComment(\GameLibraryBundle\Entity\Comment $comments)
+    {
+        $this->comments->removeElement($comments);
+    }
+
+    /**
+     * Get comments
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getComments()
+    {
+        return $this->comments;
+    }
+
+>>>>>>> fc0cd96... search
 }
