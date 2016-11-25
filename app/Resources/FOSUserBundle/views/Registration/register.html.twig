@@ -30,67 +30,11 @@
 </head>
 
 <body>
-<h1>Rejestracja nowego użytkownika</h1>
+<h1 align="center">Rejestracja nowego użytkownika</h1>
 <div class="container">
+    {% form_theme form 'form/fields.html.twig' %}
 
-    <form class="form-horizontal, fos_user_registration_register" action='{{ path('fos_user_registration_register') }}' method="POST">
-        <fieldset>
-            <div id="legend">
-                <legend class="">Register</legend>
-            </div>
-            <div class="control-group">
-                <!-- Username -->
-                <label class="control-label"  for="username">Username</label>
-                <div class="controls">
-                    <input type="text" id="username" name="username" placeholder="" class="input-xlarge">
-                    <p class="help-block">Username can contain any letters or numbers, without spaces</p>
-                </div>
-            </div>
-
-            <div class="control-group">
-                <!-- E-mail -->
-                <label class="control-label" for="email">E-mail</label>
-                <div class="controls">
-                    <input type="text" id="email" name="email" placeholder="" class="input-xlarge">
-                    <p class="help-block">Please provide your E-mail</p>
-                </div>
-            </div>
-
-            <div class="control-group">
-                <!-- Password-->
-                <label class="control-label" for="password">Password</label>
-                <div class="controls">
-                    <input type="password" id="password" name="password" placeholder="" class="input-xlarge">
-                    <p class="help-block">Password should be at least 4 characters</p>
-                </div>
-            </div>
-
-            <div class="control-group">
-                <!-- Password -->
-                <label class="control-label"  for="password_confirm">Password (Confirm)</label>
-                <div class="controls">
-                    <input type="password" id="password_confirm" name="password_confirm" placeholder="" class="input-xlarge">
-                    <p class="help-block">Please confirm password</p>
-                </div>
-            </div>
-            <div class="control-group">
-                <!-- Password -->
-                <label class="control-label"  for="user_description">Desctiption</label>
-                <div class="controls">
-                    <input type="text" id="user_description" name="user_description" placeholder="Say something about yourself" class="input-xlarge">
-                    <p class="help-block">Write something!</p>
-                </div>
-            </div>
-
-            <div class="control-group">
-                <!-- Button -->
-                <div class="controls">
-                    <input class="btn btn-success" type="submit" value="{{ 'zarejestruj'|trans }}" />
-                </div>
-            </div>
-        </fieldset>
-    </form>
-   {{% block fos_user_content %}
+   {% block fos_user_content %}
         {% include "FOSUserBundle:Registration:register_content.html.twig" %}
 
     {% endblock fos_user_content %}

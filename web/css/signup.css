@@ -1,0 +1,11 @@
+body {
+    background-image: url("../uploads/backgorund.jpg");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.control-label {
+    color: white;
+}
