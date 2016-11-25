@@ -1,5 +1,86 @@
-{% extends "FOSUserBundle::layout.html.twig" %}
+<!--
+User Profile Sidebar by @keenthemes
+A component of Metronic Theme - #1 Selling Bootstrap 3 Admin Theme in Themeforest: http://j.mp/metronictheme
+Licensed under MIT
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Games index{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('uploads/favicon.ico') }}" />
+    <script
+            src="http://code.jquery.com/jquery-2.2.4.min.js"
+            integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/profile.css">
+    <script src= "/app/app.js" type="text/javascript"></script>
+    <script src= "/app/rating.js" type="text/javascript"></script>
+    <script src="/app/jquery.tablesorter.js"  type="text/javascript"></script>
+    <script src= "/app/createGame.js" type="text/javascript"></script>
 
-{% block fos_user_content %}
-{% include "FOSUserBundle:Profile:show_content.html.twig" %}
-{% endblock fos_user_content %}
+
+</head>
+<body>
+<div class="container">
+    <div class="row profile">
+        <div class="col-md-3">
+            <div class="profile-sidebar">
+                <!-- SIDEBAR USERPIC -->
+                <div class="profile-userpic">
+                    <img src="/uploads/{{ app.user.picture }} class="img-responsive" alt="">
+                </div>
+                <!-- END SIDEBAR USERPIC -->
+                <!-- SIDEBAR USER TITLE -->
+                <div class="profile-usertitle">
+                    <div class="profile-usertitle-name">
+                        {{ user.username }}
+                    </div>
+                    <div class="profile-usertitle-job">
+                        {{ user.email }}
+                    </div>
+                </div>
+                <!-- END SIDEBAR USER TITLE -->
+                <!-- SIDEBAR BUTTONS -->
+                <div class="profile-userbuttons">
+                    <a href="{{ path('editProfile', {'username': app.user}) }}" class="btn btn-success btn-sm">Edit</a><br>
+                    <a href="{{ path('default') }}"  class="btn btn-danger btn-sm">Home</a>
+                </div>
+                <!-- END SIDEBAR BUTTONS -->
+                <!-- SIDEBAR MENU -->
+                <div class="profile-usermenu">
+                    <ul class="nav">
+                        <li class="active">
+                            <a href="#">
+                                <i class="glyphicon glyphicon-home"></i>
+                                Overview </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="{{ path('game_index') }}">
+                                <i class="glyphicon glyphicon-user"></i>
+                                Open library in new tab </a>
+                        </li>
+
+                        <li>
+                            <a href="{{ path('game_new') }}">
+                                <i class="glyphicon glyphicon-flag"></i>
+                                Add new game </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- END MENU -->
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="profile-content">
+                {{ user.description }}
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+</body>
