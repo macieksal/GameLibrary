@@ -1,10 +1,17 @@
-{% extends 'base.html.twig'%}
+{% extends 'GameLibraryBundle::base.html.twig' %}
+{% block head %}
+
+    {{ parent() }}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.9.0/css/lightbox.css" rel="stylesheet">
+    #
+
+{% endblock %}
 
 
 {% block body %}
     <h1>Game</h1>
 
-    <table>
+    <table class="table">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -28,22 +35,24 @@
             </tr>
         <tr>
             <th>Picture</th>
-            <td><img src="/uploads/{{ game.pic }}"></td>
+            <td><a href="/{{ game.pic }}" data-lightbox="image-1" data-title={{ game.pic }}><img src="/{{ game.pic }}" width="150px" height="150px"></a>
+            </td>
         </tr>
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('game_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('game_edit', { 'id': game.id }) }}">Edit</a>
-        </li>
-        <li>
+
+<p>
+            <a href="{{ path('game_index') }}" class="btn btn-lg btn-default" id="back" style="float: right;">Back to the list</a>
+
+
+            <a href="{{ path('game_edit', { 'id': game.id }) }}"class="btn btn-lg btn-info" id="edit">Edit</a>
+
+
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input type="submit" value="Delete" class="btn btn-lg btn-danger">
             {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    </p>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.9.0/js/lightbox-plus-jquery.min.js"></script>
 {% endblock %}

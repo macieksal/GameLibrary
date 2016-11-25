@@ -36,7 +36,7 @@
 <h1>Profile edit</h1>
        <p><img src="/uploads/{{ app.user.picture }}"></p>
 
-{{ form_start(edit_form) }}
+{{ form_start(edit_form, {'class':'horizontal'}) }}
         {{ form_widget(edit_form) }}
 
     <input type="submit" value="Edit Profile" />

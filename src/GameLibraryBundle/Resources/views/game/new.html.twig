@@ -1,7 +1,7 @@
-{% extends 'base.html.twig' %}
+{% extends 'GameLibraryBundle::base.html.twig' %}
 
 {% block body %}
-    <h1>Game creation</h1>
+    <h1>Add Game</h1>
 
     {{ form_start(form) }}
     <div>
@@ -20,7 +20,8 @@
         {{ form_label(form.categories) }}
         {{ form_widget(form.categories) }}
     </div>
-        <input type="submit" value="Create" />
+        <input class="btn btn-lg btn-Success" type="submit" value="Create" />
+    <a href="{{ path('category_new') }}" class="btn btn-lg btn-default" id="back" style="float: right;">Add a category</a>
     {{ form_end(form) }}
 
     <ul>
