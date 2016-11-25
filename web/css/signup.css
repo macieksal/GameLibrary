@@ -1,5 +1,5 @@
-body {
-    background-image: url("../uploads/backgorund.jpg");
+.glowna {
+    background-image: url("../uploads/background.jpg");
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -7,5 +7,5 @@ body {
 }
 
 .control-label {
-    color: white;
+    color: lightsteelblue;
 }

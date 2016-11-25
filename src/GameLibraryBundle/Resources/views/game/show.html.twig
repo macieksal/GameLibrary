@@ -6,7 +6,7 @@
 
     {{ parent() }}
     <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.9.0/css/lightbox.css" rel="stylesheet">
-    #
+
 
 {% endblock %}
 
@@ -17,32 +17,37 @@
 
     <table class="table">
         <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ game.id }}</td>
-            </tr>
-            <tr>
-                <th>Title</th>
-                <td>{{ game.title }}</td>
-            </tr>
-            <tr>
-                <th>Producer</th>
-                <td>{{ game.producer }}</td>
-            </tr>
-            <tr>
-                <th>Premieredate</th>
-                <td>{% if game.premiereDate %}{{ game.premiereDate|date('Y-m-d') }}{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Rating</th>
-                <td>{{ game.rating }}</td>
-            </tr>
         <tr>
+<<<<<<< HEAD
             <th>Picture</th>
 <<<<<<< HEAD
             <td><img src="/uploads/{{ game.pic }}"</td>
 =======
             <td><a href="/{{ game.pic }}" data-lightbox="image-1" data-title={{ game.pic }}><img src="/{{ game.pic }}" width="150px" height="150px"></a>
+=======
+            <th>Id</th>
+            <td>{{ game.id }}</td>
+        </tr>
+        <tr>
+            <th>Title</th>
+            <td>{{ game.title }}</td>
+        </tr>
+        <tr>
+            <th>Producer</th>
+            <td>{{ game.producer }}</td>
+        </tr>
+        <tr>
+            <th>Premieredate</th>
+            <td>{% if game.premiereDate %}{{ game.premiereDate|date('Y-m-d') }}{% endif %}</td>
+        </tr>
+        <tr>
+            <th>Rating</th>
+            <td>{{ game.rating }}</td>
+        </tr>
+        <tr>
+            <th>Game image</th>
+            <td><img class="fancybox" src="/uploads/{{ game.pic }}" width="100px" height="100px"></a>
+>>>>>>> 6d52c60... update
             </td>
 >>>>>>> 97350c4... shrekt
         </tr>
@@ -50,17 +55,25 @@
     </table>
 
 
-<p>
-            <a href="{{ path('game_index') }}" class="btn btn-lg btn-default" id="back" style="float: right;">Back to the list</a>
+    <p>
+        <a href="{{ path('game_index') }}" class="btn btn-lg btn-default" id="back" style="float: right;">Back to the list</a>
 
 
-            <a href="{{ path('game_edit', { 'id': game.id }) }}"class="btn btn-lg btn-info" id="edit">Edit</a>
+        <a href="{{ path('game_edit', { 'id': game.id }) }}"class="btn btn-lg btn-info" id="edit">Edit</a>
 
 
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete" class="btn btn-lg btn-danger">
-            {{ form_end(delete_form) }}
+        {{ form_start(delete_form) }}
+        <input type="submit" value="Delete" class="btn btn-lg btn-danger">
+        {{ form_end(delete_form) }}
     </p>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.9.0/js/lightbox-plus-jquery.min.js"></script>
+    {%  block script %}
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.9.0/js/lightbox.js" ></script>
+
+
+    {% endblock %}
 {% endblock %}

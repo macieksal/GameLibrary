@@ -1,6 +1,7 @@
 {% extends 'GameLibraryBundle::base.html.twig' %}
 
 {% block body %}
+<<<<<<< HEAD
     <h1>Games list</h1>
 
     <table id ="myTable" class="table table-striped">
@@ -91,6 +92,179 @@
         {{ form_widget(form2) }}
         <input type="submit" value="Add new game" id="submit2"/>
         {{ form_end(form2) }}
+=======
+<h1>Games list</h1>
+
+<table id="myTable" class="table table-striped">
+    <thead>
+    <tr>
+        <th>Id<span class="caret"></span></th>
+        <th>Title<span class="caret"></span></th>
+        <th>Producer<span class="caret"></span></th>
+        <th>Premiere date<span class="caret"></span></th>
+        <th>Rating<span class="caret"></span></th>
+        <th>Number of votes<span class="caret"></span></th>
+        <th>Rate this game!</th>
+        <th>
+            <li class="dropdown">
+                <a href="#" id="dropdownSort" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                   aria-haspopup="true" aria-expanded="false">Sort by<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="{{ path('byTitle') }}">By title</a></li>
+                    <li><a href="{{ path('byTimeAdded') }}">By time added</a></li>
+                    <li><a href="{{ path('byPremiere') }}">By premiere date</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li class="dropdown-header">By rating</li>
+                    <li><a href="{{ path('byRating') }}">The best games</a></li>
+                    <li><a href="{{ path('byLowRating') }}">The worst games</a></li>
+                </ul>
+            </li>
+        </th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody id="gierki2">
+    {% for game in games %}
+        <tr id='gra' class="gierki">
+            <td id="id"><a href="{{ path('game_show', { 'id': game.id }) }}">{{ game.id }}</a><br><br><br>
+                <p>Categories:
+
+                    {% for key in game.categories %}
+                        <a href="{{ path('category_show', { 'id': key.id }) }}">{{ key }}</a>
+                    {% endfor %}</p></td>
+            <td id="title">{{ game.title }}</td>
+            <td id="producer">{{ game.producer }}</td>
+            <td id="premiere">{% if game.premiereDate %}{{ game.premiereDate|date('Y-m-d') }}{% endif %}</td>
+            <td id="ratingMy-{{ game.id }}">{{ game.rating }}</td>
+            <td id="votesMy-{{ game.id }}">{{ game.ratingQuantity }}</td>
+            <td>
+                <fieldset class='rating' id='{{ game.id }}'>
+                    <input type='radio' id='star5-{{ game.id }}' name='rating-{{ game.id }}' value='10'/><label
+                            class='full' for='star5-{{ game.id }}' title='Awesome - 5 stars'></label>
+                    <input type='radio' id='star4half-{{ game.id }}' name='rating-{{ game.id }}' value='9'/><label
+                            class='half' for='star4half-{{ game.id }}' title='Pretty good - 4.5 stars'></label>
+                    <input type='radio' id='star4-{{ game.id }}' name='rating-{{ game.id }}' value='8'/><label
+                            class='full' for='star4-{{ game.id }}' title='Pretty good - 4 stars'></label>
+                    <input type='radio' id='star3half-{{ game.id }}' name='rating-{{ game.id }}' value='7'/><label
+                            class='half' for='star3half-{{ game.id }}' title='Meh - 3.5 stars'></label>
+                    <input type='radio' id='star3-{{ game.id }}' name='rating-{{ game.id }}' value='6'/><label
+                            class='full' for='star3-{{ game.id }}' title='Meh - 3 stars'></label>
+                    <input type='radio' id='star2half-{{ game.id }}' name='rating-{{ game.id }}' value='5'/><label
+                            class='half' for='star2half-{{ game.id }}' title='Kinda bad - 2.5 stars'></label>
+                    <input type='radio' id='star2-{{ game.id }}' name='rating-{{ game.id }}' value='4'/><label
+                            class='full' for='star2-{{ game.id }}' title='Kinda bad - 2 stars'></label>
+                    <input type='radio' id='star1half-{{ game.id }}' name='rating-{{ game.id }}' value='3'/><label
+                            class='half' for='star1half-{{ game.id }}' title='Meh - 1.5 stars'></label>
+                    <input type='radio' id='star1-{{ game.id }}' name='rating-{{ game.id }}' value='2'/><label
+                            class='full' for='star1-{{ game.id }}' title='Sucks big time - 1 star'></label>
+                    <input type='radio' id='starhalf-{{ game.id }}' name='rating-{{ game.id }}' value='1'/><label
+                            class='half' for='starhalf-{{ game.id }}' title='Sucks big time - 0.5 stars'></label>
+                </fieldset> {% if app.user is null %}<script src= "/app/not_logged.js" type="text/javascript"></script>{% endif %}
+            </td>
+            <td>{% if path(app.request.attributes.get('_route')) ends with 'ByHighestRating' %}Sorting by rating
+                {% elseif path(app.request.attributes.get('_route')) ends with 'ByLowestRating' %}Sorting by increasing rating
+                {% elseif path(app.request.attributes.get('_route')) ends with 'ByTitle' %}Sorting by title
+                {% elseif path(app.request.attributes.get('_route')) ends with 'ByTimeAdded' %}Sorting by time added
+                {% elseif path(app.request.attributes.get('_route')) ends with 'ByPremiere' %}Sorting by premiere date
+                {% endif %}</td>
+            <td>
+                <ul class="actions">
+                    <li>
+                        <a href="{{ path('game_show', { 'id': game.id }) }}">
+                            <button class="btn btn-sm btn-info">show</button>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('game_edit', { 'id': game.id }) }}">
+                            <button class="btn btn-sm btn-success">edit</button>
+                        </a>
+                    </li>
+                </ul>
+            </td>
+        <tr id="notSort" class="static">
+            <td>
+                <button for='{{ game.id }}' id='{{ game.id }}' class="showComment btn btn-sm btn-warning">Show
+                    comments
+                </button>
+                <button id='{{ game.id }}' class="addComment btn btn-sm btn-danger">Add a comment</button>
+
+            </td>
+        </tr>
+        <tr class="hide static komenty" id="{{ game.id }}">
+
+            <td>
+                <ul foor="{{ game.id }}">
+                    {% for comment in game.comments %}
+
+                        <li><strong>{{ comment.date|date('Y-m-d H:i:s') }}</strong>: {{ comment }}</li>
+
+                    {% endfor %}
+                </ul>
+
+            </td>
+        </tr>
+
+        </div>
+        </td></tr>
+        </tr>
+
+    {% endfor %}
+    </tbody>
+</table>
+
+<ul>
+    <li>
+        <button class="btn btn-lg btn-primary" id="createGame">Create a new game</button>
+    </li>
+
+</ul>
+{% if app.user is not null %}
+    <div id="createGameAjaxForm" class="hide">
+        {{ form_start(form2) }}
+        {{ form_widget(form2) }}
+        <input type="submit" value="Add new game" id="submit2"/>
+        {{ form_end(form2) }}
     </div>
+{% else %}
+    <h3>You must log in order to add game</h3>
+{% endif %}
+
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        {% if app.user is not null %}
+        <div class="modal-header">
+            <span class="close">×</span>
+
+            <h2>Add a comment</h2>
+        </div>
+
+            <div class="modal-body">
+                <div id="addCommentDiv">
+                    {{ form_start(form3) }}
+                    {{ form_widget(form3) }}
+
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                {{ form_end(form3) }}
+                <h3>
+                    <button id="submitBtnComment" class="addComment btn btn-lg btn-danger">Submit</button>
+                </h3>
+
+            </div>
+        {% else %}
+            <div class="modal-header">
+                <span class="close">x</span>
+
+                <h2>You must log in order to comment</h2>
+            </div>
+        {% endif %}
+>>>>>>> 6d52c60... update
+    </div>
+
+</div>
 
 {% endblock %}
