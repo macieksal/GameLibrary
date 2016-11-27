@@ -7,10 +7,10 @@ Project includes MySQL database with relations many to many (categories), many t
 
 Screenshots below! 
 
-![alt tag](https://github.com/bartekwajda/GameLibrary/web/css/1.jpg?)
-![alt tag](https://github.com/bartekwajda/GameLibrary/web/css/2.jpg?)
-![alt tag](https://github.com/bartekwajda/GameLibrary/web/css/3.jpg?)
-![alt tag](https://github.com/bartekwajda/GameLibrary/web/css/4.jpg?)
+![alt tag](https://github.com/bartekwajda/GameLibrary/blob/master/web/css/1.jpg?)
+![alt tag](https://github.com/bartekwajda/GameLibrary/blob/master/web/css/2.jpg?)
+![alt tag](https://github.com/bartekwajda/GameLibrary/blob/master/web/css/3.jpg?)
+![alt tag](https://github.com/bartekwajda/GameLibrary/blob/master/web/css/4.jpg?)
 
 
 
