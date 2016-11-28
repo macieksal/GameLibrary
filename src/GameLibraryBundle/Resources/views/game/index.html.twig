@@ -94,7 +94,10 @@
         {{ form_end(form2) }}
 =======
 <h1>Games list</h1>
-    <form id="kek" action="/game/search"><input id='kek' type="text" name="search"><input type="submit" value="search"></form>
+    {{ form_start(searchForm) }}
+    {{ form_widget(searchForm) }}
+    <input type="submit" value="Search" id="submit3"/>
+    {{ form_end(searchForm) }}
 <table id="myTable" class="table table-striped">
     <thead>
     <tr>

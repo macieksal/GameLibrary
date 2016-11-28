@@ -41,7 +41,13 @@ class GameController extends Controller
             $form2->handleRequest($request);
 
 
+<<<<<<< HEAD
         }
+=======
+        $searchForm = $this->createForm('GameLibraryBundle\Form\SearchType', $game);
+        $searchForm->handleRequest($request);
+
+>>>>>>> 6e5f68c... add search form
 
         return array('form2' => $form2->createView(),
 <<<<<<< HEAD
@@ -49,6 +55,7 @@ class GameController extends Controller
 =======
             'games' => $games,
             'form3' => $form3->createView(),
+            'searchForm' => $searchForm->createView()
         );
 >>>>>>> fc0cd96... search
     }
@@ -391,12 +398,12 @@ class GameController extends Controller
 
     /**
      * @Route ("/search")
+     * @Method ("POST")
      * @Template ("GameLibraryBundle:game:index.html.twig")
      */
     public function SearchAction(Request $request)
     {
 
-        $string = $request->request->get('search');
 
         $repository = $this->getDoctrine()->getRepository('GameLibraryBundle:Game');
 
@@ -410,11 +417,10 @@ class GameController extends Controller
         $form3 = $this->createForm('GameLibraryBundle\Form\CommentType', $comment);
         $form3->handleRequest($request);
 
-        return new Response($string);
-
         return ['games' => $games,
             'form2' => $form2->createView(),
-            'form3' => $form3->createView()];
+            'form3' => $form3->createView(),
+            'form4' => $form4->createView()];
     }
 
 }
