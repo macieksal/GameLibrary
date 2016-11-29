@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 {#<html>
+=======
+<html>
+>>>>>>> d15aaa7e94a2ff60410248749f055a36753d4166
 <head></head>
 
 
@@ -10,6 +14,7 @@
 
     <a href="{{ path('fos_user_security_logout') }}">Wyloguj się</a><br>
 
+<<<<<<< HEAD
 
     <a href="{{ path('editProfile', {'username': app.user}) }}">Edytuj profil</a>
 
@@ -17,11 +22,23 @@
 
     Nie jesteś zalogowany. <br>
     <a href="{{ path('fos_user_security_login') }}"><button>Zaloguj się</button></a><br>
+=======
+    <a href="{{ path('editProfile', {'username': app.user}) }}">Edytuj profil</a>
+{% else %}
+
+    Nie jesteś zalogowany. <br>
+    <a href="{{ path('fos_user_security_login') }}">Zaloguj się</a><br>
+>>>>>>> d15aaa7e94a2ff60410248749f055a36753d4166
     <a href="{{ path('fos_user_registration_register') }}">Zarejestruj się</a>
 
 {% endif %}
 
 </body>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> d15aaa7e94a2ff60410248749f055a36753d4166
 </html>#}
 
 
@@ -68,7 +85,11 @@
 
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <a href="{{ path('fos_user_profile_show') }}" class="pull-right"><img id="avatar" width=100px, height=65px,
+<<<<<<< HEAD
                                                                                                src="/uploads/{{ app.user.picture }}"></a>
+=======
+                                                                              src="/uploads/{{ app.user.picture }}"></a>
+>>>>>>> d15aaa7e94a2ff60410248749f055a36753d4166
 
         <div class="container">
             <div class="navbar-header">
@@ -161,13 +182,23 @@
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
             <div class="item active">
+<<<<<<< HEAD
 
+=======
+                <img src="uploads/46720190c233f8924b944d3650024018.jpeg" width="660" height="500">
+>>>>>>> d15aaa7e94a2ff60410248749f055a36753d4166
             </div>
 
             {% for game in games %}
 
                 <div class="item">
+<<<<<<< HEAD
                     <img src="uploads/{{ game.pic }}" width="460" height="345">
+=======
+
+                    <img src="uploads/{{ game.pic }}" width="660" height="500">
+
+>>>>>>> d15aaa7e94a2ff60410248749f055a36753d4166
                 </div>
             {% endfor %}
 
@@ -207,4 +238,8 @@
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 
 </body>
+<<<<<<< HEAD
+=======
+>>>>>>> 6d52c60... update
+>>>>>>> d15aaa7e94a2ff60410248749f055a36753d4166
 </html>

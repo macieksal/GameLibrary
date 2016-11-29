@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 body {
     background-image: url("../uploads/backgorund.jpg");
+=======
+.glowna {
+    background-image: url("../uploads/background.jpg");
+>>>>>>> d15aaa7e94a2ff60410248749f055a36753d4166
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -7,5 +12,9 @@ body {
 }
 
 .control-label {
+<<<<<<< HEAD
     color: white;
+=======
+    color: lightsteelblue;
+>>>>>>> d15aaa7e94a2ff60410248749f055a36753d4166
 }

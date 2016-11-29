@@ -31,8 +31,11 @@ class User extends BaseUser
      *
      * @Assert\File(mimeTypes={"image/jpeg"})
      */
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> d15aaa7e94a2ff60410248749f055a36753d4166
     private $picture = 'uploads/defaultAvatar.jpg';
 
     public function __construct()

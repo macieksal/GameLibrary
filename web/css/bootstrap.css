@@ -3517,7 +3517,10 @@ a.btn.disabled, fieldset[disabled] a.btn {
 }
 
 .btn-success {
+<<<<<<< HEAD
     margin-top:15px;
+=======
+>>>>>>> d15aaa7e94a2ff60410248749f055a36753d4166
     color: #fff;
     background-color: #5cb85c;
     border-color: #4cae4c
@@ -4615,10 +4618,15 @@ select[multiple].input-group-sm > .form-control, select[multiple].input-group-sm
     float: left;
     height: 50px;
     padding: 15px 15px;
+<<<<<<< HEAD
     font-size: 35px;
     line-height: 20px;
     margin-top: 15px;
 
+=======
+    font-size: 18px;
+    line-height: 20px
+>>>>>>> d15aaa7e94a2ff60410248749f055a36753d4166
 }
 
 .navbar-brand:focus, .navbar-brand:hover {

@@ -50,10 +50,13 @@ li {
     list-style-type: none;
 }
 
+<<<<<<< HEAD
 
 .carousel-inner > .item > img {
     margin: 0 auto;
 }
+=======
+>>>>>>> d15aaa7e94a2ff60410248749f055a36753d4166
 #dropdownSort {
     color: #333;
 }
@@ -62,6 +65,12 @@ li {
 .expand {
 
     display: block !important;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+=======
+>>>>>>> d15aaa7e94a2ff60410248749f055a36753d4166
 }
 
 #avatar {
@@ -75,6 +84,40 @@ li {
     margin-bottom: 0.4em;
 }
 
+<<<<<<< HEAD
 h1 {
     margin-top: 20px
+=======
+
+h1 {
+    margin-top: 20px;
+    width: 50%;
+}
+
+.addComment {
+    margin-right: 2em;
+    margin-left: 2em;
+}
+
+.hide {
+    display: none;
+}
+
+.komenty {
+
+    background-color: white;
+    color: black
+}
+
+.komenty td {
+    width: 100%;
+
+    border-radius: 5px;
+    background-color: white;
+}
+
+#kek {
+    width: 40%;
+>>>>>>> fc0cd96... search
+>>>>>>> d15aaa7e94a2ff60410248749f055a36753d4166
 }

@@ -1,7 +1,11 @@
 /web/bundles/
 /app/bootstrap.php.cache
 /app/cache/*
+<<<<<<< HEAD
 
+=======
+/app/config/parameters.yml
+>>>>>>> d15aaa7e94a2ff60410248749f055a36753d4166
 /app/logs/*
 !app/cache/.gitkeep
 !app/logs/.gitkeep
@@ -35,7 +39,12 @@
 !var/sessions/.gitkeep
 
 # Parameters
+<<<<<<< HEAD
 
+=======
+/app/config/parameters.yml
+/app/config/parameters.ini
+>>>>>>> d15aaa7e94a2ff60410248749f055a36753d4166
 
 # Managed by Composer
 /app/bootstrap.php.cache
@@ -47,7 +56,11 @@
 
 # Assets and user uploads
 /web/bundles/
+<<<<<<< HEAD
 
+=======
+/web/uploads/
+>>>>>>> d15aaa7e94a2ff60410248749f055a36753d4166
 
 # PHPUnit
 /app/phpunit.xml

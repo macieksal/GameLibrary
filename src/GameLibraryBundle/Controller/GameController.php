@@ -4,9 +4,19 @@ namespace GameLibraryBundle\Controller;
 
 use GameLibraryBundle\Entity\Game;
 use GameLibraryBundle\Entity\Category;
+<<<<<<< HEAD
 use JMS\Serializer\Serializer;
 use JMS\Serializer\SerializerBuilder;
 use JMS\SerializerBundle\Templating\SerializerHelper;
+=======
+<<<<<<< HEAD
+use JMS\Serializer\Serializer;
+use JMS\Serializer\SerializerBuilder;
+use JMS\SerializerBundle\Templating\SerializerHelper;
+=======
+use GameLibraryBundle\Form\SearchType;
+>>>>>>> a63368b... add search form functionality
+>>>>>>> d15aaa7e94a2ff60410248749f055a36753d4166
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -41,10 +51,60 @@ class GameController extends Controller
             $form2->handleRequest($request);
 
 
+<<<<<<< HEAD
         }
 
         return array('form2' => $form2->createView(),
             'games' => $games);
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+        }
+=======
+        $searchForm = $this->createForm('GameLibraryBundle\Form\SearchType', $game);
+        $searchForm->handleRequest($request);
+
+>>>>>>> 6e5f68c... add search form
+=======
+        $form4 = $this->createFormBuilder()
+
+            ->add('search', 'text', array(
+                'attr' => array(
+                    'placeholder' => 'Search for games',
+                ),
+                'label' => false))
+            ->add('submit', 'submit')
+            ->getForm();
+
+
+        $form4->handleRequest($request);
+
+        if ($form4->isSubmitted() && $form4->isValid()) {
+
+            $string = $form4->getData();
+
+            $repository = $this->getDoctrine()->getRepository('GameLibraryBundle:Game');
+
+            $games = $repository->Search($string['search']);
+
+            return array('form2' => $form2->createView(),
+                'games' => $games,
+                'form3' => $form3->createView(),
+                'form4' => $form4->createView()
+            );
+        }
+>>>>>>> a63368b... add search form functionality
+
+        return array('form2' => $form2->createView(),
+<<<<<<< HEAD
+            'games' => $games);
+=======
+            'games' => $games,
+            'form3' => $form3->createView(),
+            'form4' => $form4->createView()
+        );
+>>>>>>> fc0cd96... search
+>>>>>>> d15aaa7e94a2ff60410248749f055a36753d4166
     }
 
 
@@ -73,6 +133,22 @@ class GameController extends Controller
                 return $this->redirectToRoute('game_show', array('id' => $game->getId()));
             }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+            if ($form3->isSubmitted() && $form3->isValid()) {
+
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($comment);
+                $em->flush($comment);
+
+                return array('id' => $comment->getId());
+            }
+
+
+>>>>>>> fc0cd96... search
+>>>>>>> d15aaa7e94a2ff60410248749f055a36753d4166
             return $this->render('GameLibraryBundle:game:new.html.twig', array(
                 'game' => $game,
                 'form' => $form->createView(),
@@ -82,6 +158,30 @@ class GameController extends Controller
         return new Response('<html><head><title>Access denied</title></head><body>You must be logged to add a new game to the library.</body>');
     }
 
+<<<<<<< HEAD
+=======
+    private function fileHandle($file, $user)
+    {
+
+        $dir = $this->container->getParameter('kernel.root_dir') . '/../web/uploads/';
+
+        if (!$file)
+            return;
+
+        $fileName = $user->getPic();
+
+        if (!empty($fileName) && file_exists($dir . $fileName)) {
+            unlink($dir . $fileName);
+        }
+
+        $fileName = md5(uniqid()) . '.' . $file->guessExtension();
+        $file->move($dir, $fileName);
+
+        $user->setPic($fileName);
+
+    }
+
+>>>>>>> d15aaa7e94a2ff60410248749f055a36753d4166
     /**
      * Finds and displays a game entity.
      *
@@ -220,7 +320,33 @@ class GameController extends Controller
 
         $games = $repository->sortByRatingFromHighest();
 
+<<<<<<< HEAD
         return ['games' => $games];
+=======
+<<<<<<< HEAD
+        return ['games' => $games];
+=======
+        $game = new Game();
+        $form2 = $this->createForm('GameLibraryBundle\Form\GameType', $game);
+        $form2->handleRequest($request);
+
+        $comment = new Comment();
+        $form3 = $this->createForm('GameLibraryBundle\Form\CommentType', $comment);
+        $form3->handleRequest($request);
+
+        $searchForm = $this->createForm('GameLibraryBundle\Form\SearchType');
+        $searchForm->handleRequest($request);
+
+        return ['games' => $games,
+            'form2' => $form2->createView(),
+<<<<<<< HEAD
+            'form3' => $form3->createView()];
+>>>>>>> fc0cd96... search
+=======
+            'form3' => $form3->createView(),
+            'searchForm' => $searchForm->createView()];
+>>>>>>> a63368b... add search form functionality
+>>>>>>> d15aaa7e94a2ff60410248749f055a36753d4166
     }
 
     /**
@@ -234,7 +360,33 @@ class GameController extends Controller
 
         $games = $repository->sortByRatingFromLowest();
 
+<<<<<<< HEAD
         return ['games' => $games];
+=======
+<<<<<<< HEAD
+        return ['games' => $games];
+=======
+        $game = new Game();
+        $form2 = $this->createForm('GameLibraryBundle\Form\GameType', $game);
+        $form2->handleRequest($request);
+
+        $comment = new Comment();
+        $form3 = $this->createForm('GameLibraryBundle\Form\CommentType', $comment);
+        $form3->handleRequest($request);
+
+        $searchForm = $this->createForm('GameLibraryBundle\Form\SearchType');
+        $searchForm->handleRequest($request);
+
+        return ['games' => $games,
+            'form2' => $form2->createView(),
+<<<<<<< HEAD
+            'form3' => $form3->createView()];
+>>>>>>> fc0cd96... search
+=======
+            'form3' => $form3->createView(),
+            'searchForm' => $searchForm->createView()];
+>>>>>>> a63368b... add search form functionality
+>>>>>>> d15aaa7e94a2ff60410248749f055a36753d4166
     }
 
     /**
@@ -248,7 +400,33 @@ class GameController extends Controller
 
         $games = $repository->sortByPremiereDate();
 
+<<<<<<< HEAD
         return ['games' => $games];
+=======
+<<<<<<< HEAD
+        return ['games' => $games];
+=======
+        $game = new Game();
+        $form2 = $this->createForm('GameLibraryBundle\Form\GameType', $game);
+        $form2->handleRequest($request);
+
+        $comment = new Comment();
+        $form3 = $this->createForm('GameLibraryBundle\Form\CommentType', $comment);
+        $form3->handleRequest($request);
+
+        $searchForm = $this->createForm('GameLibraryBundle\Form\SearchType');
+        $searchForm->handleRequest($request);
+
+        return ['games' => $games,
+            'form2' => $form2->createView(),
+<<<<<<< HEAD
+            'form3' => $form3->createView()];
+>>>>>>> fc0cd96... search
+=======
+            'form3' => $form3->createView(),
+            'searchForm' => $searchForm->createView()];
+>>>>>>> a63368b... add search form functionality
+>>>>>>> d15aaa7e94a2ff60410248749f055a36753d4166
     }
 
     /**
@@ -262,7 +440,33 @@ class GameController extends Controller
 
         $games = $repository->sortByTitle();
 
+<<<<<<< HEAD
         return ['games' => $games];
+=======
+<<<<<<< HEAD
+        return ['games' => $games];
+=======
+        $game = new Game();
+        $form2 = $this->createForm('GameLibraryBundle\Form\GameType', $game);
+        $form2->handleRequest($request);
+
+        $comment = new Comment();
+        $form3 = $this->createForm('GameLibraryBundle\Form\CommentType', $comment);
+        $form3->handleRequest($request);
+
+        $searchForm = $this->createForm('GameLibraryBundle\Form\SearchType');
+        $searchForm->handleRequest($request);
+
+        return ['games' => $games,
+            'form2' => $form2->createView(),
+<<<<<<< HEAD
+            'form3' => $form3->createView()];
+>>>>>>> fc0cd96... search
+=======
+            'form3' => $form3->createView(),
+            'searchForm' => $searchForm->createView()];
+>>>>>>> a63368b... add search form functionality
+>>>>>>> d15aaa7e94a2ff60410248749f055a36753d4166
     }
 
     /**
@@ -276,6 +480,7 @@ class GameController extends Controller
 
         $games = $repository->sortByTimeAdded();
 
+<<<<<<< HEAD
         return ['games' => $games];
     }
 
@@ -331,6 +536,55 @@ class GameController extends Controller
 
         $user->setPic($fileName);
 
+=======
+<<<<<<< HEAD
+        return ['games' => $games];
+=======
+        $game = new Game();
+<<<<<<< HEAD
+        $form2 = $this->createForm('GameLibraryBundle\Form\AjaxGameType', $game);
+        $form2->handleRequest($request);
++
+        $comment = new Comment();
+        $form3 = $this->createForm('GameLibraryBundle\Form\CommentType', $comment);
+        $form3->handleRequest($request);
+
+        return new JsonResponse(array('msg' => 'You must be logged in order to add games'));
+>>>>>>> fc0cd96... search
+    }
+
+    /**
+     * @Route ("/search")
+     * @Method ("POST")
+     * @Template ("GameLibraryBundle:game:index.html.twig")
+     */
+    public function SearchAction(Request $request)
+    {
+
+
+        $repository = $this->getDoctrine()->getRepository('GameLibraryBundle:Game');
+
+        $games = $repository->Search($string);
+
+        $game = new Game();
+        $form2 = $this->createForm('GameLibraryBundle\Form\AjaxGameType', $game);
+=======
+        $form2 = $this->createForm('GameLibraryBundle\Form\GameType', $game);
+>>>>>>> a63368b... add search form functionality
+        $form2->handleRequest($request);
+
+        $comment = new Comment();
+        $form3 = $this->createForm('GameLibraryBundle\Form\CommentType', $comment);
+        $form3->handleRequest($request);
+
+        $searchForm = $this->createForm('GameLibraryBundle\Form\SearchType');
+        $searchForm->handleRequest($request);
+
+        return ['games' => $games,
+            'form2' => $form2->createView(),
+            'form3' => $form3->createView(),
+            'searchForm' => $searchForm->createView()];
+>>>>>>> d15aaa7e94a2ff60410248749f055a36753d4166
     }
 
 }
