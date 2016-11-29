@@ -1,7 +1,7 @@
 GameLibrary
 ===========
 
-<<<<<<< HEAD
+
 A Symfony project created on November 23, 2016, 9:43 am.
 =======
 Project started on 23rd of November 2016, made with Symfony2 Framework, Friends of Symfony Bundle, MySQL (Doctrine), jQuery and a simple bootstrap to make page more eye appealing.
@@ -18,4 +18,3 @@ Screenshots below!
 
 
 
->>>>>>> d15aaa7e94a2ff60410248749f055a36753d4166
